@@ -53,7 +53,7 @@ module.exports = function (grunt) {
 
         // http://livedocs.adobe.com/flex/3/html/help.html?content=compilers_19.html
         // `-library-path+=libraryPath1 -library-path+=libraryPath2`
-        libraries: ['libs/*.*'],
+        libraries: ['libs/*.*','libs/mpora-player.swc'],
         // http://livedocs.adobe.com/flex/3/html/help.html?content=compilers_14.html
         // http://livedocs.adobe.com/flex/3/html/help.html?content=compilers_17.html
         // http://livedocs.adobe.com/flex/3/html/help.html?content=compilers_20.html
@@ -112,7 +112,7 @@ module.exports = function (grunt) {
       },
       videojs_swf: {
         files: {
-          'dist/video-js.swf': ['src/VideoJS.as']
+          'dist/video-js-embedded.swf': ['src/VideoJSEmbedded.as']
         }
       }
     },
@@ -207,6 +207,7 @@ module.exports = function (grunt) {
         cmdLineOpts.push('-output');
         cmdLineOpts.push(f.dest);
       }
+      
       cmdLineOpts.push('--');
       cmdLineOpts.push.apply(cmdLineOpts, srcList);
 
