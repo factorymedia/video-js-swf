@@ -210,6 +210,7 @@ module.exports = function (grunt) {
       }
 
       cmdLineOpts.push('-define=CONFIG::version, "' + pkg.version + '"');
+      cmdLineOpts.push("-library-path+=./libs/mpora-player.swc");
       cmdLineOpts.push('--');
       cmdLineOpts.push.apply(cmdLineOpts, srcList);
 

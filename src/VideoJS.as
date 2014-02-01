@@ -7,10 +7,10 @@ package{
     import com.videojs.Base64;
     
     import flash.display.Sprite;
-    import flash.display.StageAlign;
+    import flash.display.StageAlign;  
     import flash.display.StageScaleMode;
     import flash.events.Event;
-    import flash.events.MouseEvent;
+    import flash.events.MouseEvent; 
     import flash.events.TimerEvent;
     import flash.external.ExternalInterface;
     import flash.geom.Rectangle;

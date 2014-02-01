@@ -3,8 +3,8 @@ package com.videojs{
     import com.videojs.VideoJSView;
     import com.videojs.VideoJSModel;
     import com.videojs.events.VideoUIEvent;
-	  import com.videojs.controls.DefaultTheme;
-	  import com.videojs.controls.PlayButton;
+    import com.videojs.controls.DefaultTheme;
+	  import com.videojs.controls.*;
 	  import flash.display.Sprite;
 	  import flash.events.Event;
 	  import flash.events.MouseEvent;
@@ -21,9 +21,10 @@ package com.videojs{
         public function VideoJSUIControls(player:*){
            _player = player;
            _model = VideoJSModel.getInstance(); 
-           
            initControlsBackground();
            initPlayButton();
+           initFullScreenButton();
+           initWatermark();
         }
         
         private function initControlsBackground():Sprite{
@@ -37,6 +38,18 @@ package com.videojs{
            var _playButton:PlayButton = new PlayButton(_player);
            _controlsBackground.addChild(_playButton);
            return _playButton;
+        }
+        
+        private function initFullScreenButton():FullScreenButton{
+          var _fullScreenButton:FullScreenButton = new FullScreenButton(_player);
+          _controlsBackground.addChild(_fullScreenButton);
+          return _fullScreenButton;
+        }
+        
+        private function initWatermark():Watermark{
+          var _watermark:Watermark = new Watermark(_player, DefaultTheme.DEFAULT_WATERMARK);
+          _controlsBackground.addChild(_watermark);
+          return _watermark;
         }
         
     }
