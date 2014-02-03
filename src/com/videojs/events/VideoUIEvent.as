@@ -23,6 +23,9 @@ package com.videojs.events{
         public static const ON_UPDATE:String = "VideoPlaybackEvent.ON_UPDATE";
         public static const ON_VIDEO_DIMENSION_UPDATE:String = "VideoPlaybackEvent.ON_VIDEO_DIMENSION_UPDATE";
         
+        public static const ON_SHOW_CONTROLS:String = "VideoUIEvent.ON_SHOW_CONTROLS";
+        public static const ON_HIDE_CONTROLS:String = "VideoUIEvent.ON_HIDE_CONTROLS";
+        
         // a flexible container object for whatever data needs to be attached to any of these events
         private var _data:Object;
         

@@ -217,6 +217,10 @@ package{
           return onGetPropertyCalled(pPropertyName);
         }
         
+        public function setProperty(pPropertyName:String = "", pPropertyValue:* = null):*{
+          return onSetPropertyCalled(pPropertyName, pPropertyValue);
+        }
+        
         private function onGetPropertyCalled(pPropertyName:String = ""):*{
 
             switch(pPropertyName){

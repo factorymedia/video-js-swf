@@ -1,31 +1,22 @@
 package com.videojs.controls {
-  
-  import com.videojs.VideoJSView;
-  import com.videojs.VideoJSModel;
-  import com.videojs.controls.VideoJSButton;
-  import com.videojs.events.*;
-  import com.videojs.controls.DefaultTheme;
-  import com.videojs.VideoJSUIUtils;
-  
-  import flash.display.Sprite;
-  import flash.display.MovieClip;
+    
+  import com.greensock.TweenLite;
+    
   import flash.display.StageDisplayState;
-  import flash.display.Shape;
-  
 	import flash.events.Event;  
   import flash.events.MouseEvent;
-  	  
   
   public class FullScreenButton extends VideoJSButton {
     
-    private var _button:FullScreenButtonMC = new FullScreenButtonMC();
+    protected var _button:FullScreenButtonMC = new FullScreenButtonMC();
+    private var _offsetY:int = 40;
 
     public function FullScreenButton(player:VideoJSEmbedded){
       super(player);
       init(_button);
     }
     
-    public override function onClicked(e:MouseEvent):*{
+    protected override function onClicked(e:MouseEvent):*{
       if (stage.displayState == StageDisplayState.NORMAL) {
         stage.displayState = StageDisplayState.FULL_SCREEN;
       } else {
@@ -33,9 +24,17 @@ package com.videojs.controls {
       }
     }
     
-    public override function setPosition():void{
-      _button.x = model.stageRect.width - _button.width;
-      _button.y = model.stageRect.height - _button.height - 40;
+    protected override function setPosition():void{
+      _button.x = _model.stageRect.width - _button.width;
+      _button.y = _model.stageRect.height - _button.height - _offsetY;
+    }
+    
+    protected override function onShow(e:Event):void{
+      TweenLite.to(this, DefaultTheme.UI_SPEED, {x: 0});
+    }
+    
+    protected override function onHide(e:Event):void{
+      TweenLite.to(this, DefaultTheme.UI_SPEED, {x: (0 + _button.width)});
     }
     
   }
