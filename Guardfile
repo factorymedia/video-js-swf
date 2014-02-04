@@ -6,6 +6,7 @@
 #
 guard :shell do
   watch(/(.*).as/) {|m| `grunt mxmlc` }
+  watch(/(.*).swc/) {|m| `grunt mxmlc` }
 end
 
 guard 'livereload' do
