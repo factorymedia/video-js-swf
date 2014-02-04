@@ -6,12 +6,14 @@ package com.videojs.controls{
   import flash.display.Sprite;
   import flash.display.DisplayObject;
   import flash.display.Loader;
+  import flash.display.StageDisplayState;
+
   import flash.net.URLRequest;
   import flash.net.navigateToURL;
+
   import flash.events.Event;
   import flash.events.MouseEvent;
-  
-  
+    
   public class Watermark extends Sprite{
     
     private var _player:VideoJSEmbedded;
@@ -59,6 +61,7 @@ package com.videojs.controls{
     
     private function onClicked(e:MouseEvent):void{
       if(_url != undefined){
+        stage.displayState = StageDisplayState.NORMAL;
         var url:URLRequest = new URLRequest(_url);
         navigateToURL(url, "_blank");
       }
